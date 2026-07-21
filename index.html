@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZVR - Zane Von Regal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #fcefe9;
+            color: #222;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #111;
+            color: #fff;
+            padding: 25px 40px;
+        }
+
+        .logo {
+            font-size: 50px;
+            font-weight: 900;
+            color: #e6c875;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .nav-icons a {
+            color: #fff;
+            margin-left: 25px;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .search-container {
+            padding: 25px;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .search-bar {
+            width: 70%;
+            padding: 15px 25px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .search-bar:focus {
+            border-color: #e6c875;
+        }
+
+        .categories-title {
+            text-align: center;
+            padding: 30px 0 10px 0;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            width: calc(33% - 30px);
+            max-width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff5500;
+        }
+
+        .like-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: color 0.3s, background-color 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .like-btn.liked {
+            color: #ff0000;
+        }
+
+        footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 50px 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ZVR</div>
+        <div class="nav-icons">
+            <a href="#"><i class="far fa-heart"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search products here...">
+    </div>
+
+    <div class="categories-title">Latest Collection</div>
+
+    <div class="grid-container">
+        <div class="product-card">
+            <button class="like-btn" onclick="toggleLike(this)"><i class="far fa-heart"></i></button>
+            <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=500" alt="Oversized T-Shirt">
+            <div class="product-info">
+                <div class="product-title">Stallion Oversized T-Shirt</div>
+                <div class="price">Rs. 1599.00</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <button class="like-btn" onclick="toggleLike(this)"><i class="far fa-heart"></i></button>
+            <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=500" alt="Hoodie">
+            <div class="product-info">
+                <div class="product-title">Wild Tiger Hoodie</div>
+                <div class="price">Rs. 1599.00</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <button class="like-btn" onclick="toggleLike(this)"><i class="far fa-heart"></i></button>
+            <img src="https://images.unsplash.com/photo-1581655353725-b165b4c19c5c?w=500" alt="Jacket">
+            <div class="product-info">
+                <div class="product-title">Luxe Leather Jacket</div>
+                <div class="price">Rs. 2999.00</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Shipping Policy</a>
+            <a href="#">Returns & Exchanges</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Terms of Service</a>
+        </div>
+        <p>&copy; 2026 ZVR. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleLike(btn) {
+            btn.classList.toggle('liked');
+            const icon = btn.querySelector('i');
+            if (btn.classList.contains('liked')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+            }
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
